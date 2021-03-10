@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>gps-sdr-sim-assistant</title>
+    <script>
+        window.nodeRequire = require;
+        delete window.require;
+        delete window.exports;
+        delete window.module;
+    	delete process.versions;//增加这句，text就不会调用node的require模块了
+    </script>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=2.0&key=c79b668641ad5bc4ec76ba5659b1f1b0"></script>
+    <script src="https://webapi.amap.com/ui/1.1/main.js?v=1.1.1"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+<body style="background: white;">
+    <div id="container"></div>
+    <div id="pickerBox">
+        <input id="pickerInput" placeholder="输入关键字选取地点" />
+        <div id="poiInfo"></div>
+    </div>
+
+    <div class="tool">
+        纬度： <input type="text" id="lat">
+        经度： <input type="text" id="lng"><br>
+        时间/秒： <input type="number" min="0" id="time" value="100">
+        <label id="start">生成文件</label>
+        
+    </div>
+
+    <div class="graph" id="graph"> 
+        <strong id="bar" style="width:1%;"></strong> 
+    </div> 
+</body>
+<script src="./tool.js"></script>
+<script src="./index.js"></script>
+<script src="./renderer.js"></script>
+</html>

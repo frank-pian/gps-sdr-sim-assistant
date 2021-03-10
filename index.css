@@ -1,0 +1,54 @@
+html, body {
+    width: 100%;
+    height: 100%;
+}
+body {
+    margin: 0;
+}
+#container {
+    width: 100%;
+    height: 100%;
+}
+
+#pickerBox {
+    position: absolute;
+    left: 40px;
+    top: 80px;
+}
+
+.tool {
+    position: absolute;
+    width: 90%;
+    left: 40px;
+    bottom: 80px;
+    vertical-align:baseline
+}
+
+#start {
+    float: right;
+    background-color: black;
+    padding: 10px 8px;
+    color: white;
+    cursor: pointer;
+}
+
+.graph{ 
+    position: absolute;
+    display: none;
+    left: 40px;
+    bottom: 40px;
+    width: 450px;
+    border: 1px solid #C75211; 
+    height: 25px; 
+}
+
+#bar{ 
+    display: block; 
+    background: #e57233; 
+    float: left; 
+    height: 100%; 
+    text-align: center; 
+    font-family: Verdana; 
+    line-height: 25px; 
+    color: #FFF; 
+} 
