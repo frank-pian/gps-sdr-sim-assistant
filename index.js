@@ -1,4 +1,5 @@
 var gpsTool = new GpsTool();
+var modeValue = 1;
 var map = new AMap.Map('container', {
     zoom:3,//级别
     center: [116.397428, 39.90923],//中心点坐标
@@ -83,15 +84,41 @@ function poiPickerReady(poiPicker) {
     // }); 
 }
 
+document.getElementsByClassName("cardBox")[0].onchange = function() {
+    var mode = document.getElementsByName("mode");
+    for (var i=0; i<mode.length; i++){
+        if (mode[i].checked) {
+            modeValue = parseInt(mode[i].value);
+        }
+    }
+    if (modeValue === 1) {
+        select("staic").style.display = "block";
+        select("dynamic").style.display = "none";
+    }else {
+        select("staic").style.display = "none";
+        select("dynamic").style.display = "block";
+    }
+}
+
 
 document.getElementById("start").onclick = function() {
-    var lat = select("lat").value;
-    var lng =  select("lng").value;
-    var height =  select("height").value;
-    if (lat != "" && lng != ""){
-        runExec(lat, lng, height);
+    if (modeValue === 1) {
+        var lat = select("lat").value;
+        var lng =  select("lng").value;
+        var height =  select("height").value;
+        if (lat != "" && lng != ""){
+            runExec(lat, lng, height);
+        }
+    }else {
+        var filePath = select("file").files[0].path;
+        console.log(filePath);
+        if (filePath) {
+            runExecDynamic(filePath);
+        }
     }
-    
+}
+document.getElementById("send").onclick = function() {
+    sendData();
 }
 
 function processUpdate(per){ 

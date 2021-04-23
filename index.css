@@ -16,6 +16,12 @@ body {
     top: 80px;
 }
 
+.cardBox {
+    position: absolute;
+    right: 40px;
+    top: 80px;
+}
+
 .tool {
     position: absolute;
     width: 90%;
@@ -30,6 +36,15 @@ body {
     padding: 10px 8px;
     color: white;
     cursor: pointer;
+}
+
+#send {
+    float: right;
+    background-color: black;
+    padding: 10px 8px;
+    color: white;
+    cursor: pointer;
+    margin-right: 10px;
 }
 
 .graph{ 

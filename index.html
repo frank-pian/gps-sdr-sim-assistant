@@ -21,12 +21,22 @@
         <div id="poiInfo"></div>
     </div>
 
+    <div class="cardBox">
+        <input type="radio" name="mode" value="1" checked>静态模式</input>
+        <input type="radio" name="mode" value="2">动态模式</input>
+    </div>
+
     <div class="tool">
-        纬度： <input type="text" id="lat">
-        经度： <input type="text" id="lng"><br>
-        海拔/m： <input type="number" min="0" id="height" value="100">
+        <div id="staic">
+            纬度： <input type="text" id="lat">
+            经度： <input type="text" id="lng"><br>
+            海拔/m： <input type="number" min="0" id="height" value="100">
+        </div>
+        <div id="dynamic" style="display: none;">
+            上传路径： <input type="file" id="file">
+        </div>
         <label id="start">生成文件</label>
-        
+        <label id="send">发送</label>
     </div>
 
     <div class="graph" id="graph"> 
