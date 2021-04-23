@@ -87,9 +87,9 @@ function poiPickerReady(poiPicker) {
 document.getElementById("start").onclick = function() {
     var lat = select("lat").value;
     var lng =  select("lng").value;
-    var time =  select("time").value;
+    var height =  select("height").value;
     if (lat != "" && lng != ""){
-        runExec(lat, lng, time);
+        runExec(lat, lng, height);
     }
     
 }

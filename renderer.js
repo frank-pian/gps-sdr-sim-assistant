@@ -21,14 +21,14 @@ console.log(cmdPath)
 let workerProcess
 let workerProcessSymbol = false
  
-function runExec(lat, lng, time) {
+function runExec(lat, lng, height) {
     if (workerProcessSymbol === true) {
         console.log("Repeat build")
         return
     }
     workerProcessSymbol = true
   // 执行命令行，如果命令不需要路径，或就是项目根目录，则不需要cwd参数：
-  cmdStr = cmdStr + " -e brdc0670.21n -l " + lat + "," + lng + "," + time + " -b 8"
+  cmdStr = cmdStr + " -e brdc.21n -l " + lat + "," + lng + "," + height + " -b 8"
   console.log(cmdStr)
   select("graph").style.display = "block"
   workerProcess = exec(cmdStr, {cwd: cmdPath, encoding: 'buffer'})
