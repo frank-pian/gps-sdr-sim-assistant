@@ -21,14 +21,14 @@ console.log(cmdPath)
 let workerProcess
 let workerProcessSymbol = false
  
-function runExec(lat, lng, height) {
+function runExec(lat, lng, height, time) {
     if (workerProcessSymbol === true) {
         console.log("Repeat build")
         return
     }
     workerProcessSymbol = true
   // 执行命令行，如果命令不需要路径，或就是项目根目录，则不需要cwd参数：
-  cmdStr = cmdStr + " -e brdc.21n -l " + lat + "," + lng + "," + height + " -b 8"
+  cmdStr = cmdStr + " -e brdc -l " + lat + "," + lng + "," + height + " -d " + time + " -b 8"
   console.log(cmdStr)
   select("graph").style.display = "block"
   workerProcess = exec(cmdStr, {cwd: cmdPath, encoding: 'buffer'})
@@ -43,7 +43,7 @@ function runExec(lat, lng, height) {
   workerProcess.stderr.on('data', function (data) {
     console.log('stderr: ' + iconv.decode(data, 'cp936'));
     let num = parseFloat(iconv.decode(data, 'cp936').match(/([^run =]+)$/)[0]);
-    processUpdate(num / 300 * 100);
+    processUpdate(num / time * 100);
   });
  
   // 退出之后的输出

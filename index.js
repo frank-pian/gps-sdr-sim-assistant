@@ -88,8 +88,16 @@ document.getElementById("start").onclick = function() {
     var lat = select("lat").value;
     var lng =  select("lng").value;
     var height =  select("height").value;
+    var time = select("time").value;
+    if (time === "") {
+        time = 300
+    }
+    if (time < 0 || time > 3000) {
+        alert("时间范围不正确")
+        return;
+    }
     if (lat != "" && lng != ""){
-        runExec(lat, lng, height);
+        runExec(lat, lng, height, time);
     }
     
 }
