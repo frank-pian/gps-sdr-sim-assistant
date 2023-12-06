@@ -10,7 +10,12 @@
         delete window.module;
     	delete process.versions;//增加这句，text就不会调用node的require模块了
     </script>
-    <script type="text/javascript" src="https://webapi.amap.com/maps?v=2.0&key=c79b668641ad5bc4ec76ba5659b1f1b0"></script>
+    <script type="text/javascript">
+        window._AMapSecurityConfig = {
+            securityJsCode:'4f21ae8340c7ba4169ab8b274d8674fd',
+        }
+    </script>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=2.0&key=e882a90b684c4b4abd77cc1e4e5ad5fa"></script>
     <script src="https://webapi.amap.com/ui/1.1/main.js?v=1.1.1"></script>
     <link rel="stylesheet" type="text/css" href="index.css">
 </head>
